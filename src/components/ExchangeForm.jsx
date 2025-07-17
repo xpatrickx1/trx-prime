@@ -103,34 +103,35 @@ const CurrencyInput = ({
 };
 
 
-
 const CurrencyBadge = ({ currency, theme }) => {
   return (
     <div className="flex items-center gap-3">
       <div className="opacity-70 font-normal text-white text-[20.4px] text-center">
         {currency}
       </div>
-      <div className="relative w-[21px] h-[21px]">
-        <div className="relative h-[21px]">
-        {theme === 'green' ? (
-          <>
-            <img
-              className="absolute w-3 w-[21px] h-[21px]"
-              alt="Vector"
-              src={trxGreen}
-            />
-          </>
-        ) : (
-          <>
-            <img
-              className="absolute w-3 w-[21px] h-[21px]"
-              alt="Vector"
-              src={trx}
-            />
-          </>
-           )}
+      {currency === "TRX" && (
+        <div className="relative w-[21px] h-[21px]">
+          <div className="relative h-[21px]">
+          {theme === 'green' ? (
+            <>
+              <img
+                className="absolute w-3 w-[21px] h-[21px]"
+                alt="Vector"
+                src={trxGreen}
+              />
+            </>
+          ) : (
+            <>
+              <img
+                className="absolute w-3 w-[21px] h-[21px]"
+                alt="Vector"
+                src={trx}
+              />
+            </>
+            )}
+          </div>
         </div>
-      </div>
+      )}
       {currency === "USDT" && (
         <div className="relative w-[21px] h-[21px]  bg-[100%_100%]">
           <img
@@ -139,7 +140,7 @@ const CurrencyBadge = ({ currency, theme }) => {
             src={usdt}
           />
         </div>
-      )}
+      )}     
     </div>
   );
 };
